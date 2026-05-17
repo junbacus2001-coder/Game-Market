@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Market - Links</title>
+    <style>
+        /* ===== CSS: Consistent color scheme (60-30-10 rule) ===== */
+        :root {
+            --primary: #121212; /* 60% - main background */
+            --secondary: #1e1e1e; /* 30% - card backgrounds */
+            --accent: #f5c518; /* 10% - highlights, buttons */
+            --text-light: #ffffff;
+            --text-muted: #cccccc;
+            --link-alt: #4ecdc4;
+        }
+
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--primary);
+            color: var(--text-light);
+            padding: 40px 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* ===== Semantic section styles ===== */
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        header h1 {
+            color: var(--accent);
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        header .author {
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        main {
+            margin-bottom: 50px;
+        }
+
+        section h2 {
+            color: var(--accent);
+            margin-bottom: 25px;
+            font-size: 1.8rem;
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 8px;
+        }
+
+        /* ===== CSS Grid Layout ===== */
+        .game-links-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .game-link-card {
+            background-color: var(--secondary);
+            border-radius: 12px;
+            padding: 25px;
+            border: 2px solid transparent;
+            transition: all 0.3s ease; /* Transition effect */
+        }
+
+        /* ===== Hover effect ===== */
+        .game-link-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-8px);
+            box-shadow: 0 8px 20px rgba(245, 197, 24, 0.2);
+        }
+
+        .game-link-card h3 {
+            color: var(--accent);
+            margin-bottom: 12px;
+            font-size: 1.3rem;
+        }
+
+        .game-link-card p {
+            color: var(--text-muted);
+            margin-bottom: 18px;
+            font-size: 0.95rem;
+        }
+
+        .game-link {
+            display: inline-block;
+            text-decoration: none;
+            color: var(--primary);
+            background-color: var(--accent);
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+            margin-bottom: 12px;
+        }
+
+        .game-link:hover {
+            background-color: #ffdb4d;
+        }
+
+        .game-link:active {
+            transform: scale(0.96);
+        }
+
+        .extra-link {
+            display: none;
+            color: var(--link-alt);
+            font-size: 0.9rem;
+            text-decoration: underline;
+            margin-top: 8px;
+            transition: opacity 0.3s ease;
+        }
+
+        footer {
+            text-align: center;
+            color: var(--text-muted);
+            padding-top: 20px;
+            border-top: 1px solid #333;
+        }
+
+        /* Notification style */
+        .notification {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: var(--accent);
+            color: var(--primary);
+            padding: 15px 25px;
+            border-radius: 8px;
+            font-weight: 600;
+            display: none;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+
+        /* Dynamic list styles */
+        .featured-list {
+            margin: 20px 0;
+            padding-left: 20px;
+            color: var(--text-light);
+        }
+    </style>
+</head>
+<body>
+    <!-- ===== Semantic HTML: header, main, section, footer ===== -->
+    <div class="container">
+        <header>
+            <h1>Game Market Hub</h1>
+            <p class="author">Author: Hilberto Bacus</p>
+        </header>
+
+        <main>
+            <section>
+                <h2>Game Market Links</h2>
+                
+                <div class="game-links-section">
+                    <!-- Link Card 1 -->
+                    <div class="game-link-card">
+                        <h3>PC Games Store</h3>
+                        <p>Browse and buy the latest PC games, DLCs, and in-game items at best prices.</p>
+                        <a href="https://store.steampowered.com/" target="_blank" class="game-link" data-extra="https://www.epicgames.com/store">Visit Store</a>
+                        <a href="#" class="extra-link">Alternative Store: Epic Games</a>
+                        
+                        <!-- Dynamic list will load here -->
+                        <ul class="featured-list" id="pc-featured"></ul>
+                    </div>
+
+                    <!-- Link Card 2 -->
+                    <div class="game-link-card">
+                        <h3>Console Marketplace</h3>
+                        <p>Shop games, accessories, and digital codes for PlayStation, Xbox, and Nintendo.</p>
+                        <a href="https://www.playstation.com/en-ph/store/" target="_blank" class="game-link" data-extra="https://www.xbox.com/en-US/store">Visit Store</a>
+                        <a href="#" class="extra-link">Alternative Store: Xbox Store</a>
+
+                        <ul class="featured-list" id="console-featured"></ul>
+                    </div>
+
+                    <!-- Link Card 3 -->
+                    <div class="game-link-card">
+                        <h3>Mobile Game Market</h3>
+                        <p>Get top-up credits, rare items, and premium versions for mobile games.</p>
+                        <a href="https://play.google.com/store/games" target="_blank" class="game-link" data-extra="https://apps.apple.com/ph/genre/games/id6014">Visit Store</a>
+                        <a href="#" class="extra-link">Alternative Store: Apple App Store</a>
+
+                        <ul class="featured-list" id="mobile-featured"></ul>
+                    </div>
+
+                    <!-- Link Card 4 -->
+                    <div class="game-link-card">
+                        <h3>Game Trading Zone</h3>
+                        <p>Sell or trade your game items, accounts, and collectibles safely with other players.</p>
+                        <a href="https://www.playerauctions.com/" target="_blank" class="game-link" data-extra="https://www.g2g.com/">Visit Store</a>
+                        <a href="#" class="extra-link">Alternative Zone: G2G</a>
+
+                        <ul class="featured-list" id="trading-featured"></ul>
+                    </div>
+
+                    <!-- Link Card 5 -->
+                    <div class="game-link-card">
+                        <h3>Message Me</h3>
+                        <p>Not yet registered? Contact me via email:</p>
+                        <a href="mailto:junbacus2001@gmail.com" target="_blank" class="game-link" data-extra="https://mail.google.com/">Send Email</a>
+                        <a href="#" class="extra-link">Open Gmail</a>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>I am Hilberto A. Bacus from Talisayan, Zamboanga City, Purok 6. I am a 2nd year college students at Colegio dela Cuidad de Zamboanga. As for now I developed this website specifically for the gamers. I am still practicing on developing website. I'm studying HTML, CSS and JAVASCRIPT. This is one of the project-link of developing a website.</p>
+        </footer>
+    </div>
+
+    <!-- Notification Element -->
+    <div class="notification" id="notification"></div>
+
+    <!-- ===== External JavaScript linked correctly ===== -->
+    <script src="script.js"></script>
+</body>
+</html>
